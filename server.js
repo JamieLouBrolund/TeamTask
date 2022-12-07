@@ -41,6 +41,8 @@ app.use(flash())
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
  
-app.listen(process.env.PORT, ()=>{
+connectDB().then(() => {
+  app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on PORT ${process.env.PORT}, you better catch it!`)
-})    
+})
+})   
